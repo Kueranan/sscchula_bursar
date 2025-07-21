@@ -16,9 +16,6 @@
             font-family: 'Kanit', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
 
@@ -28,8 +25,9 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             padding: 40px;
-            max-width: 800px;
+            max-width: 1000px;
             width: 100%;
+            margin: 0 auto;
             animation: fadeInUp 0.8s ease-out;
         }
 
@@ -46,7 +44,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
         .logo {
@@ -65,7 +63,7 @@
         }
 
         .title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 10px;
@@ -78,11 +76,36 @@
             font-weight: 400;
         }
 
+        .forms-section {
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
         .forms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .form-card {
@@ -94,6 +117,9 @@
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-card::before {
@@ -123,20 +149,20 @@
         }
 
         .form-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 12px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            font-size: 24px;
+            font-size: 28px;
             color: white;
         }
 
         .form-title {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 15px;
@@ -144,16 +170,17 @@
 
         .form-description {
             color: #7f8c8d;
-            font-size: 14px;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            flex-grow: 1;
         }
 
         .form-button {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 25px;
             font-size: 16px;
             font-weight: 500;
@@ -163,6 +190,8 @@
             display: inline-block;
             font-family: 'Kanit', sans-serif;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            text-align: center;
+            width: 100%;
         }
 
         .form-button:hover {
@@ -173,7 +202,7 @@
 
         .footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 30px;
             border-top: 1px solid #ecf0f1;
             color: #7f8c8d;
@@ -184,6 +213,7 @@
             font-size: 14px;
             color: #e74c3c;
             font-weight: 600;
+            margin-top: 5px;
         }
 
         @media (max-width: 768px) {
@@ -193,15 +223,48 @@
             }
             
             .title {
-                font-size: 24px;
+                font-size: 26px;
             }
             
             .forms-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .form-card {
+                padding: 25px;
+            }
+
+            .form-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
                 padding: 20px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .form-title {
+                font-size: 20px;
+            }
+
+            .form-description {
+                font-size: 14px;
             }
         }
 
@@ -220,6 +283,34 @@
                 transform: scale(1);
             }
         }
+
+        /* Enhanced visual effects */
+        .forms-grid {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .form-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .form-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -230,40 +321,38 @@
             <p class="subtitle">คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
         </div>
 
-        
-        <div class="forms-grid">
-            <div class="form-card">
-                <div class="form-icon">💰</div>
-                <h3 class="form-title">เอกสารเบิกเงิน</h3>
-                <p class="form-description">ฟอร์มสำหรับการเบิกเงินต่างๆ ของชมรม รวมถึงการเบิกค่าใช้จ่ายในกิจกรรมและการดำเนินงาน</p>
-                <a href="https://forms.gle/Uy4WeeMqB3KfDfBV9" target="_blank" class="form-button">
-                    เข้าใช้งาน
-                </a>
-            </div>
+        <div class="forms-section">
+            <h2 class="section-title">ฟอร์มและเอกสาร</h2>
+            <div class="forms-grid">
+                <div class="form-card">
+                    <div class="form-icon">💰</div>
+                    <h3 class="form-title">เอกสารเบิกเงิน</h3>
+                    <p class="form-description">ฟอร์มสำหรับการเบิกเงินต่างๆ ของชมรม รวมถึงการเบิกค่าใช้จ่ายในกิจกรรมและการดำเนินงานต่างๆ ของชมรม</p>
+                    <a href="https://forms.gle/Uy4WeeMqB3KfDfBV9" target="_blank" class="form-button">
+                        เข้าใช้งาน
+                    </a>
+                </div>
 
+                <div class="form-card">
+                    <div class="form-icon">🛒</div>
+                    <h3 class="form-title">ฟอร์มจัดซื้ออุปกรณ์</h3>
+                    <p class="form-description">ฟอร์มสำหรับการขอจัดซื้ออุปกรณ์ต่างๆ ที่จำเป็นสำหรับการดำเนินงานและกิจกรรมของชมรม</p>
+                    <a href="https://forms.gle/ZC4nxYQbwainRVTL9" target="_blank" class="form-button">
+                        เข้าใช้งาน
+                    </a>
+                </div>
 
-            <div class="form-card">
-                <div class="form-icon">🛒</div>
-                <h3 class="form-title">ฟอร์มจัดซื้ออุปกรณ์</h3>
-                <p class="form-description">ฟอร์มสำหรับการขอจัดซื้ออุปกรณ์ต่างๆ ที่จำเป็นสำหรับการดำเนินงานของชมรม</p>
-                <a href="https://forms.gle/ZC4nxYQbwainRVTL9" target="_blank" class="form-button">
-                    เข้าใช้งาน
-                </a>
+                <div class="form-card">
+                    <div class="form-icon">📋</div>
+                    <h3 class="form-title">หลักฐานการสั่งซื้อ</h3>
+                    <p class="form-description">ฟอร์มสำหรับการส่งหลักฐานการสั่งซื้อและเอกสารที่เกี่ยวข้องเพื่อการตรวจสอบและบันทึก</p>
+                    <a href="https://forms.gle/w79fWesYPc9mVoW39" target="_blank" class="form-button">
+                        เข้าใช้งาน
+                    </a>
+                </div>
             </div>
         </div>
 
-        
-        <div class="form-card">
-            <div class="form-icon">🛒</div>
-                <h3 class="form-title">หลังฐานการสั่งซื้อ</h3>
-                <p class="form-description">หลักฐานการสั่งซื้อ สำหรับการตรวจสอบ</p>
-                <a href="https://forms.gle/w79fWesYPc9mVoW39" target="_blank" class="form-button">
-                    เข้าใช้งาน
-                </a>
-            </div>
-        </div>
-
-    
         <div class="footer">
             <p>© 2025 ชมรมการศึกษา คณะวิทยาศาสตร์</p>
             <p class="cu-logo">จุฬาลงกรณ์มหาวิทยาลัย</p>
@@ -321,13 +410,31 @@
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             
-            container.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * 5}deg) rotateY(${(x - 0.5) * 5}deg)`;
+            container.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * 2}deg) rotateY(${(x - 0.5) * 2}deg)`;
         });
 
         // Reset transform on mouse leave
         document.addEventListener('mouseleave', () => {
             const container = document.querySelector('.container');
             container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+        });
+
+        // Add staggered animation to form cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.form-card').forEach(card => {
+            observer.observe(card);
         });
     </script>
 </body>
