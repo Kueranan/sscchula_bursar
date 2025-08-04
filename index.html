@@ -48,43 +48,51 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             background: linear-gradient(45deg, #ff6b6b, #feca57);
             border-radius: 50%;
-            margin: 0 auto 20px;
+            margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 48px;
             color: white;
             font-weight: bold;
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
         }
 
         .title {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             line-height: 1.4;
         }
 
         .subtitle {
-            font-size: 18px;
+            font-size: 20px;
             color: #7f8c8d;
             font-weight: 400;
         }
 
-        .forms-section {
-            margin-top: 30px;
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .selection-section {
+            margin-top: 40px;
         }
 
         .section-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             text-align: center;
             position: relative;
         }
@@ -92,13 +100,107 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
+            width: 80px;
+            height: 4px;
             background: linear-gradient(90deg, #667eea, #764ba2);
             border-radius: 2px;
+        }
+
+        .selection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .selection-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .selection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            animation: gradientMove 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% {
+                background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            }
+            50% {
+                background: linear-gradient(90deg, #48dbfb, #ff9ff3, #ff6b6b, #feca57);
+            }
+        }
+
+        .selection-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border-color: #667eea;
+        }
+
+        .selection-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 40px;
+            color: white;
+        }
+
+        .selection-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .selection-description {
+            color: #7f8c8d;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .selection-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Kanit', sans-serif;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            width: 100%;
+        }
+
+        .selection-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(45deg, #5a6fd8, #6a42a0);
         }
 
         .forms-grid {
@@ -131,15 +233,6 @@
             height: 4px;
             background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
             animation: gradientMove 3s ease-in-out infinite;
-        }
-
-        @keyframes gradientMove {
-            0%, 100% {
-                background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
-            }
-            50% {
-                background: linear-gradient(90deg, #48dbfb, #ff9ff3, #ff6b6b, #feca57);
-            }
         }
 
         .form-card:hover {
@@ -200,6 +293,27 @@
             background: linear-gradient(45deg, #5a6fd8, #6a42a0);
         }
 
+        .back-button {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Kanit', sans-serif;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(149, 165, 166, 0.3);
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(149, 165, 166, 0.4);
+            background: linear-gradient(45deg, #85939a, #6f7d84);
+        }
+
         .footer {
             text-align: center;
             margin-top: 50px;
@@ -223,26 +337,35 @@
             }
             
             .title {
-                font-size: 26px;
+                font-size: 28px;
             }
             
+            .selection-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
             .forms-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             
-            .form-card {
+            .form-card, .selection-card {
                 padding: 25px;
             }
 
-            .form-icon {
+            .form-icon, .selection-icon {
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
             }
 
             .section-title {
-                font-size: 20px;
+                font-size: 24px;
+            }
+
+            .selection-title {
+                font-size: 22px;
             }
         }
 
@@ -259,11 +382,11 @@
                 font-size: 16px;
             }
 
-            .form-title {
+            .form-title, .selection-title {
                 font-size: 20px;
             }
 
-            .form-description {
+            .form-description, .selection-description {
                 font-size: 14px;
             }
         }
@@ -284,7 +407,10 @@
             }
         }
 
-        /* Enhanced visual effects */
+        .selection-grid {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
         .forms-grid {
             animation: slideInUp 0.8s ease-out 0.2s both;
         }
@@ -298,6 +424,14 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .selection-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .selection-card:nth-child(2) {
+            animation-delay: 0.2s;
         }
 
         .form-card:nth-child(1) {
@@ -319,51 +453,120 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo pulse">📚</div>
-            <h1 class="title">ชมรมการศึกษา</h1>
-            <p class="subtitle">คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+        <!-- หน้าแรก - เลือกประเภท -->
+        <div id="homePage" class="page active">
+            <div class="header">
+                <div class="logo pulse">📚</div>
+                <h1 class="title">ชมรมการศึกษา</h1>
+                <p class="subtitle">คณะวิทยาศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+            </div>
+
+            <div class="selection-section">
+                <h2 class="section-title">เลือกประเภทการใช้งาน</h2>
+                <div class="selection-grid">
+                    <div class="selection-card" onclick="showPage('clubDevelopment')">
+                        <div class="selection-icon">🚀</div>
+                        <h3 class="selection-title">พัฒนาชมรม</h3>
+                        <p class="selection-description">ฟอร์มและเอกสารสำหรับการพัฒนาชมรม การเบิกเงิน การจัดซื้ออุปกรณ์ และการดำเนินงานต่างๆ ของชมรม</p>
+                        <button class="selection-button">
+                            เข้าใช้งาน
+                        </button>
+                    </div>
+
+                    <div class="selection-card" onclick="showPage('firstMeetProject')">
+                        <div class="selection-icon">🎓</div>
+                        <h3 class="selection-title">โครงการ First Meet</h3>
+                        <p class="selection-description">ฟอร์มและเอกสารสำหรับโครงการ First Meet รวมถึงการอัพโหลดใบเสร็จและเอกสารต่างๆ ที่เกี่ยวข้อง</p>
+                        <button class="selection-button">
+                            เข้าใช้งาน
+                        </button>
+                    </div>
+
+                    <div class="selection-card">
+                        <div class="selection-icon">📄</div>
+                        <h3 class="selection-title">กฎและข้อควรระวังสำหรับการออกกำกับภาษี</h3>
+                        <p class="selection-description">เอกสารแนวทางและข้อปฏิบัติสำหรับการออกใบกำกับภาษี รวมถึงกฎระเบียบและข้อควรระวังที่จำเป็น</p>
+                        <a href="https://drive.google.com/file/d/153k2OfMxiGPnZcSkgAj9VFy8I85AYVfG/view?usp=sharing" target="_blank" class="selection-button" style="text-decoration: none;">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="forms-section">
-            <h2 class="section-title">ฟอร์มและเอกสาร</h2>
-            <div class="forms-grid">
-                <div class="form-card">
-                    <div class="form-icon">💰</div>
-                    <h3 class="form-title">เอกสารเบิกเงิน</h3>
-                    <p class="form-description">ฟอร์มสำหรับการเบิกเงินต่างๆ ของชมรม รวมถึงการเบิกค่าใช้จ่ายในกิจกรรมและการดำเนินงานต่างๆ ของชมรมใช้ในกรณีสำรองจ่ายแล้วเท่านั้นพร้อม ยืนยันหลักฐานการซื้อ </p>
-                    <a href="https://forms.gle/Uy4WeeMqB3KfDfBV9" target="_blank" class="form-button">
-                        เข้าใช้งาน
-                    </a>
-                </div>
-                
+        <!-- หน้าพัฒนาชมรม -->
+        <div id="clubDevelopment" class="page">
+            <button class="back-button" onclick="showPage('homePage')">← กลับหน้าหลัก</button>
+            
+            <div class="header">
+                <div class="logo pulse">🚀</div>
+                <h1 class="title">พัฒนาชมรม</h1>
+                <p class="subtitle">ฟอร์มและเอกสารสำหรับการพัฒนาชมรม</p>
+            </div>
 
-                <div class="form-card">
-                    <div class="form-icon">🛒</div>
-                    <h3 class="form-title">ฟอร์มจัดซื้ออุปกรณ์</h3>
-                    <p class="form-description">ฟอร์มสำหรับการขอจัดซื้ออุปกรณ์ต่างๆ สำหรับการพัฒนาชมรม </p>
-                    <a href="https://forms.gle/ZC4nxYQbwainRVTL9" target="_blank" class="form-button">
-                        เข้าใช้งาน
-                    </a>
-                </div>
-                
+            <div class="forms-section">
+                <h2 class="section-title">ฟอร์มและเอกสาร</h2>
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <div class="form-icon">💰</div>
+                        <h3 class="form-title">เอกสารเบิกเงิน</h3>
+                        <p class="form-description">ฟอร์มสำหรับการเบิกเงินต่างๆ ของชมรม รวมถึงการเบิกค่าใช้จ่ายในกิจกรรมและการดำเนินงานต่างๆ ของชมรมใช้ในกรณีสำรองจ่ายแล้วเท่านั้นพร้อม ยืนยันหลักฐานการซื้อ</p>
+                        <a href="https://forms.gle/Uy4WeeMqB3KfDfBV9" target="_blank" class="form-button">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
 
-                <div class="form-card">
-                    <div class="form-icon">📋</div>
-                    <h3 class="form-title">หลักฐานการสั่งซื้อ</h3>
-                    <p class="form-description">ฟอร์มสำหรับการส่งหลักฐานการสั่งซื้อและเอกสารที่เกี่ยวข้องเพื่อการตรวจสอบและบันทึก </p>
-                    <a href="https://forms.gle/w79fWesYPc9mVoW39" target="_blank" class="form-button">
-                        เข้าใช้งาน
-                    </a>
-                </div>
+                    <div class="form-card">
+                        <div class="form-icon">🛒</div>
+                        <h3 class="form-title">ฟอร์มจัดซื้ออุปกรณ์</h3>
+                        <p class="form-description">ฟอร์มสำหรับการขอจัดซื้ออุปกรณ์ต่างๆ สำหรับการพัฒนาชมรม</p>
+                        <a href="https://forms.gle/ZC4nxYQbwainRVTL9" target="_blank" class="form-button">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
 
-                <div class="form-card">
-                    <div class="form-icon">📄</div>
-                    <h3 class="form-title">กฎและข้อควรระวังสำหรับการออกกำกับภาษี</h3>
-                    <p class="form-description">เอกสารแนวทางและข้อปฏิบัติสำหรับการออกใบกำกับภาษี รวมถึงกฎระเบียบและข้อควรระวังที่จำเป็น</p>
-                    <a href="https://drive.google.com/file/d/153k2OfMxiGPnZcSkgAj9VFy8I85AYVfG/view?usp=sharing" target="_blank" class="form-button">
-                        เข้าใช้งาน
-                    </a>
+                    <div class="form-card">
+                        <div class="form-icon">📋</div>
+                        <h3 class="form-title">หลักฐานการสั่งซื้อ</h3>
+                        <p class="form-description">ฟอร์มสำหรับการส่งหลักฐานการสั่งซื้อและเอกสารที่เกี่ยวข้องเพื่อการตรวจสอบและบันทึก</p>
+                        <a href="https://forms.gle/w79fWesYPc9mVoW39" target="_blank" class="form-button">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- หน้าโครงการ First Meet -->
+        <div id="firstMeetProject" class="page">
+            <button class="back-button" onclick="showPage('homePage')">← กลับหน้าหลัก</button>
+            
+            <div class="header">
+                <div class="logo pulse">🎓</div>
+                <h1 class="title">โครงการ First Meet</h1>
+                <p class="subtitle">ฟอร์มและเอกสารสำหรับโครงการ First Meet</p>
+            </div>
+
+            <div class="forms-section">
+                <h2 class="section-title">ฟอร์มและเอกสาร</h2>
+                <div class="forms-grid">
+                    <div class="form-card">
+                        <div class="form-icon">📊</div>
+                        <h3 class="form-title">Google Spreadsheet</h3>
+                        <p class="form-description">เอกสาร Google Spreadsheet สำหรับการติดตามและจัดการข้อมูลโครงการ First Meet</p>
+                        <a href="https://docs.google.com/spreadsheets/d/1Dbdcv8Lg4cwPA0wVkNnV3Io9M5CyUeFcDfCWW-HZZm4/edit?usp=sharing" target="_blank" class="form-button">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="form-icon">📁</div>
+                        <h3 class="form-title">อัพโหลดใบเสร็จ</h3>
+                        <p class="form-description">ฟอร์มสำหรับการอัพโหลดใบเสร็จและเอกสารหลักฐานการจ่ายเงินที่เกี่ยวข้องกับโครงการ First Meet</p>
+                        <a href="https://forms.gle/uyny5kSo7t48Pu7G6" target="_blank" class="form-button">
+                            เข้าใช้งาน
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -375,9 +578,26 @@
     </div>
 
     <script>
+        function showPage(pageId) {
+            // ซ่อนทุกหน้า
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // แสดงหน้าที่เลือก
+            document.getElementById(pageId).classList.add('active');
+            
+            // เลื่อนขึ้นด้านบน
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         // Add smooth scroll and interactive effects
-        document.querySelectorAll('.form-button').forEach(button => {
+        document.querySelectorAll('.form-button, .selection-button').forEach(button => {
             button.addEventListener('click', function(e) {
+                // Skip ripple effect for selection buttons
+                if (button.classList.contains('selection-button')) return;
+                
                 // Create ripple effect
                 const ripple = document.createElement('span');
                 const rect = button.getBoundingClientRect();
@@ -425,7 +645,7 @@
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             
-            container.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * 2}deg) rotateY(${(x - 0.5) * 2}deg)`;
+            container.style.transform = `perspective(1000px) rotateX(${(y - 0.5) * 1}deg) rotateY(${(x - 0.5) * 1}deg)`;
         });
 
         // Reset transform on mouse leave
@@ -448,7 +668,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.form-card').forEach(card => {
+        document.querySelectorAll('.form-card, .selection-card').forEach(card => {
             observer.observe(card);
         });
     </script>
